@@ -11,8 +11,6 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -48,6 +46,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         })
         return container
+    }()
+    
+    lazy var moc: NSManagedObjectContext = {
+        return persistentContainer.viewContext
     }()
 
     // MARK: - Core Data Saving and Undo support
